@@ -1,0 +1,13 @@
+/* Importa las fuentes de Google Fonts primero */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
+/* Luego, importa Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos personalizados */
+body {
+  font-family: 'Roboto Mono', monospace;
+}
