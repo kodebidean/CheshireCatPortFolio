@@ -3,10 +3,14 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import Particles from 'react-tsparticles';
 import { loadSlim } from 'tsparticles-slim';
-import { Engine, FullScreen } from 'tsparticles-engine';
+import { Engine } from 'tsparticles-engine';
 import catImage from '../assets/images/cheshire-cat-smile.png';
 import leftDirImage from '../assets/images/leftDir.png';
 import rightDirImage from '../assets/images/rightDir.png';
+import leftDirImage2 from '../assets/images/leftDir2.png';
+import rightDirImage2 from '../assets/images/rightDir2.png'
+
+import titleImage from '../assets/images/kodebideanLetter.png';
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
 
 const CheshireCat: React.FC = () => {
@@ -40,12 +44,12 @@ const CheshireCat: React.FC = () => {
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen bg-black overflow-hidden">
       {/* Fondo de partículas */}
-      <div className="absolute">
+      <div className="absolute min-h-screen">
       <Particles
         id="tsparticles"
         init={particlesInit}
         options={{
-          fullScreen: { enable: false },
+          fullScreen: { enable: true },
           fpsLimit: 60,
           particles: {
             number: { value: 50, density: { enable: true, area:800 } },
@@ -59,7 +63,11 @@ const CheshireCat: React.FC = () => {
           detectRetina: true,
         }}
       />
+      </div>
 
+      {/* Título */}
+      <div className="absolute left-48 top-0 text-white font-bold w-80  cursor-pointer transition-all hover:brightness-125 onClick={() => alert('im@multidev')}">
+        <img src={titleImage} alt="IM@KORTEX LETTER" />
       </div>
 
       <div className="relative justify-center">
@@ -87,7 +95,7 @@ const CheshireCat: React.FC = () => {
 
         {/* Ojo derecho */}
         <motion.div
-          className="absolute bottom-[37%] right-[26%] w-7 h-7 z-10 rounded-full bg-yellow-500 flex items-center justify-center"
+          className="absolute bottom-[37%] right-[26%] w-7 h-7 rounded-full bg-yellow-500 flex items-center justify-center"
           style={{ transform: `translate(${eyeOffset.x}px, ${eyeOffset.y}px)` }}
         >
           <motion.div
@@ -97,50 +105,50 @@ const CheshireCat: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Título */}
-      <div className="absolute top-8 text-white text-3xl font-bold">
-        Kodebidean
+
+
+      {/* Cartel izquierdo - "SobreMí" */}
+      <div className="absolute left-16 top-[45%] w-72 transform -translate-y-1/2 cursor-pointer transition-all hover:scale-110 hover:brightness-125" onClick={() => alert('im@cortex')}>
+        <img src={leftDirImage2} alt="ABOUT ME LETTER" />
       </div>
 
-      {/* Cartel izquierdo - "Sobre mí" */}
-      <div className="absolute left-8 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={() => alert('Sobre mí')}>
-        <img src={leftDirImage} alt="Sobre mí" />
-        <div className="absolute inset-0 flex items-center justify-center text-white font-bold text-lg">
-          Sobre mí
-        </div>
+      {/* Cartel izquierdo - "Contacto" */}
+      <div className="absolute left-16 top-[70%] transform -translate-y-1/2 cursor-pointer transition-all hover:scale-110 hover:brightness-125" onClick={() => alert('im@cortex')}>
+        <img src={leftDirImage} alt="CONTACTLETTER" />
       </div>
 
-      {/* Cartel derecho superior - "Im@Dev" */}
-      <div className="absolute right-8 top-[40%] transform -translate-y-1/2 cursor-pointer" onClick={() => alert('Im@Dev')}>
-        <img src={rightDirImage} alt="Im@Dev" />
-        <div className="absolute inset-0 flex items-center justify-center text-white font-bold text-lg">
-          Im@Dev
-        </div>
+      {/* Cartel derecho superior - "Im@MultiDev" */}
+      <div className="absolute right-16 top-[25%] transform -translate-y-1/2 cursor-pointer transition-all hover:scale-110 hover:brightness-125" onClick={() => alert('im@multidev')}>
+        <img src={rightDirImage} alt="IM@MULTIDEV LETTER" className='' />
       </div>
 
-      {/* Cartel derecho inferior - "Im@Cortex" */}
-      <div className="absolute right-8 top-[60%] transform -translate-y-1/2 cursor-pointer" onClick={() => alert('Im@Cortex')}>
-        <img src={rightDirImage} alt="Im@Cortex" />
-        <div className="absolute inset-0 flex items-center justify-center text-white font-bold text-lg">
-          Im@Cortex
-        </div>
+      {/* Cartel derecho superior - "Im@Cortex" */}
+      <div className="absolute right-16 top-[50%] w-72 transform -translate-y-1/2 cursor-pointer transition-all hover:scale-110 hover:brightness-125" onClick={() => alert('im@multidev')}>
+        <img src={rightDirImage2} alt="IM@CORTEX LETTER" className='' />
       </div>
+
+      {/* Cartel derecho superior - "Im@Brand" */}
+      <div className="absolute right-16 top-[75%]  transform -translate-y-1/2 cursor-pointer transition-all hover:scale-110 hover:brightness-125" onClick={() => alert('im@multidev')}>
+        <img src={rightDirImage} alt="IM@BRAND LETTER" className='' />
+      </div>
+
+
 
       {/* Iconos de redes sociales */}
-      <div className="flex gap-x-5 absolute bottom-20">
-        <motion.a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400 transition transform hover:scale-125">
+      <div className="flex gap-x-8 absolute ml-24 bottom-16">
+        <motion.a href="https://github.com/kodebidean" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400 transition transform hover:scale-125">
           <FaGithub size={30} />
         </motion.a>
-        <motion.a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400 transition transform hover:scale-125">
+        <motion.a href="https://www.linkedin.com/in/imanol-mugueta-unsain/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400 transition transform hover:scale-125">
           <FaLinkedin size={30} />
         </motion.a>
-        <motion.a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400 transition transform hover:scale-125">
+        <motion.a href="https://x.com/KodeBidean" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400 transition transform hover:scale-125">
           <FaTwitter size={30} />
         </motion.a>
-        <motion.a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400 transition transform hover:scale-125">
+        <motion.a href="https://www.instagram.com/kodebidean/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400 transition transform hover:scale-125">
           <FaInstagram size={30} />
         </motion.a>
-        <motion.a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400 transition transform hover:scale-125">
+        <motion.a href="https://www.youtube.com/@BideanKode" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400 transition transform hover:scale-125">
           <FaYoutube size={30} />
         </motion.a>
       </div>
