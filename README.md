@@ -1,4 +1,10 @@
-# React + TypeScript + Vite
+# CheshireCat PortFolio
+
+<p align="center">
+  <img src="cheshire_cat.jpg" width="400"/>
+</p>
+
+## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
